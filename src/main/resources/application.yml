@@ -1,0 +1,38 @@
+spring:
+  datasource:   #多数据源配置
+    master:
+      url: jdbc:mysql://localhost:3306/tesdb1?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    slave:
+      url: jdbc:mysql://localhost:3306/tesdb1?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    slave2:
+      url: jdbc:mysql://localhost:3306/tesdb4?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.imooc.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-executor-type: reuse
+    default-statement-timeout: 600
+
+
+
+
